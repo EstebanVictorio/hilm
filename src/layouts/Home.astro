@@ -1,0 +1,40 @@
+---
+import Layout from './Layout.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+
+interface Props {
+  title: string;
+  author: string;
+  role: string;
+}
+
+const { title, author, role } = Astro.props as Props;
+---
+
+<Layout title="Hello, world — Esteban Victorio" description="Hello, world. A first page, with more on the way.">
+  <header class="flex animate-fade items-center justify-end gap-6 px-6 py-8 sm:px-12 sm:py-12 lg:px-20">
+    <ThemeToggle />
+  </header>
+  <section class="self-end">
+    <span id="game-loop-state" class="absolute"></span>
+  </section>
+  <section class="max-w-4xl pt-48 px-6 py-8 sm:px-12 sm:py-12 lg:px-20">
+    <h1 class="animate-rise font-heading text-display-xl">
+      {title}
+    </h1>
+    <p class="mt-6 max-w-[34ch] animate-rise animate-delay-200 text-large text-foreground-muted sm:mt-8 flex flex-col">
+      <span class="text-foreground">por {author},</span>
+      <span class="italic text-accent-ink">
+        {role}
+      </span>
+    </p>
+  </section>
+  <body>
+    <main class="relative isolate flex min-h-dvh flex-col overflow-hidden">
+      <slot />
+    </main>
+  </body>
+  <footer class="fixed flex justify-end bottom-0 left-0 py-4 px-8 border-t w-full">
+    El arte e ilustraciones fueron creados a mano con cariño por&nbsp;<a class="underline" href="https://x.com/evictorio92" target="_blank" rel="noopener noreferrer">Esteban Victorio</a>
+  </footer>
+</Layout>
