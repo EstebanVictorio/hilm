@@ -1,6 +1,7 @@
 ---
 import Layout from './Layout.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
+import LocaleSelector from '../components/LocaleSelector';
 
 interface Props {
   title: string;
@@ -12,10 +13,11 @@ const { title, author, role } = Astro.props as Props;
 ---
 
 <Layout title="Hello, world — Esteban Victorio" description="Hello, world. A first page, with more on the way.">
-  <header class="flex animate-fade items-center justify-end gap-6 px-6 py-8 sm:px-12 sm:py-12 lg:px-20">
+  <header class="fixed right-0 flex items-center justify-end gap-6 px-6 py-8 sm:px-12 sm:py-12 lg:px-20 top-0 bg-background z-20">
+    <!-- <LocaleSelector /> -->
     <ThemeToggle />
   </header>
-  <section class="self-end">
+  <section class="self-end pt-34">
     <span id="game-loop-state" class="absolute"></span>
   </section>
   <section class="max-w-4xl pt-48 px-6 py-8 sm:px-12 sm:py-12 lg:px-20">
@@ -23,18 +25,18 @@ const { title, author, role } = Astro.props as Props;
       {title}
     </h1>
     <p class="mt-6 max-w-[34ch] animate-rise animate-delay-200 text-large text-foreground-muted sm:mt-8 flex flex-col">
-      <span class="text-foreground">por {author},</span>
+      <span class="text-foreground">{author},</span>
       <span class="italic text-accent-ink">
         {role}
       </span>
     </p>
   </section>
   <body>
-    <main class="relative isolate flex min-h-dvh flex-col overflow-hidden">
+    <main class="root relative isolate flex min-h-dvh flex-col overflow-hidden">
       <slot />
     </main>
   </body>
-  <footer class="fixed flex justify-end bottom-0 left-0 py-4 px-8 border-t w-full">
+  <footer class="fixed flex justify-end bottom-0 left-0 py-4 px-8 border-t-[0.5px] border-accent w-full bg-background">
     El arte e ilustraciones fueron creados a mano con cariño por&nbsp;<a class="underline" href="https://x.com/evictorio92" target="_blank" rel="noopener noreferrer">Esteban Victorio</a>
   </footer>
 </Layout>

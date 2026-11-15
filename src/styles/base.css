@@ -4,6 +4,14 @@
  * Everything here uses theme roles, so it follows dark / light automatically.
  */
 
+.root {
+  isolation: isolate;
+}
+
+body {
+  position: relative;
+}
+
 @layer base {
   html {
     @apply bg-background font-body text-body text-foreground antialiased;

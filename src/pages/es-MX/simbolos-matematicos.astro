@@ -1,0 +1,31 @@
+---
+import Home from '../../layouts/Home.astro';
+import cn from 'clsx'
+import { pageContainTwUtils } from '../../ui/spacing'
+
+const TW_UTILS = {
+  paragraph: cn("gap-6 px-6 py-8 sm:px-12 sm:py-12 lg:px-20")
+}
+
+const introParagraphUtils = {
+  container: cn(
+    TW_UTILS.paragraph,
+    "flex flex-col",
+    "text-xl",
+    "max-w-full"
+  )
+}
+---
+
+<Home title="Símbolos matemáticos" author="Esteban Victorio" role="Creador de cosas en tecnología">
+  <div class="flex">
+    <p class={introParagraphUtils.container}>
+    </p>
+  </div>
+</Home>
+
+
+
+<script>
+  
+</script>

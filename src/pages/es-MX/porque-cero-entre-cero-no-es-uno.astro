@@ -1,0 +1,86 @@
+---
+import Home from '../../layouts/Home.astro';
+import cn from 'clsx'
+import { pageContainTwUtils } from '../../ui/spacing'
+
+const TW_UTILS = {
+  paragraph: cn("gap-6 px-6 py-8 sm:px-12 sm:py-12 lg:px-20")
+}
+
+const introParagraphUtils = {
+  container: cn(
+    TW_UTILS.paragraph,
+    "flex flex-col",
+    "text-xl",
+    "max-w-full"
+  )
+}
+---
+
+<Home title="Porqué 0/0 no es igual a 1" author="por Esteban Victorio" role="Creador de cosas en tecnología">
+  <div class="flex">
+    <p class={introParagraphUtils.container}>
+      <span class="w-1/2">
+        Probablemente por algun tiempo, Platzi será la referencia en lo que termino los cursos de matemáticas de, bueno... Platzi.
+      </span>
+
+      <span class="w-1/2">
+        Y esto es unicamente porque no se (o al menos hasta ahora no sabia) por donde empezar, jajaja.
+      </span>
+  
+      <span class="w-1/2">
+        Así nomas (o al chile), no sabría decir si esto fue evitar aprender al menos hasta que me sintiera, no necesariamente listo, pero si en un estado mental donde pudiera
+        decir: "bueno, creo que ya puedo enfrentar lo supuestamente dificil que tal vez sean las matemáticas".
+      </span>
+
+      <span class="w-1/2">
+        Pero bueno, no viniste a leer mis razones de porque antes no hacia esto, ¿o sí?
+      </span>
+
+      <span class="w-1/2">
+        Un dia de noviembre en 2026 (cerca de cuando empecé a escribir esta cosa) empecé con la ruta de matemáticas para programación en Platzi, la cual abre con la
+        clase de "Porqué 0/0 no es igual a 1".
+      </span>
+
+      <span class="w-1/2">
+        La clase dura poco mas de 1 minuto. Y dije: no creo que en 1 minuto aprenda semejante cosa para algo tan enigmático.
+      </span>
+
+      <span class="w-1/2">Y es verdad. PERO, si te da algo que te ayuda a discernir de manera indirecta porqué sería absurdo.</span>
+
+
+      <span class="w-1/2">
+        El asunto es el siguiente: Si 0/0 fuera igual a 1, entonces, tendriamos que aceptar lo siguiente tambien como cierto:
+      </span>
+
+      <span class="w-1/2">
+        Si 0/0 es igual a 1, también sabemos que 0/0 también puede expresarse como (0 + 0)/0.
+      </span>
+
+      <span class="w-1/2">
+        Eso, a su vez, puede expresarse como 0/0 + 0/0. Y ENTONCES, tendremos que aceptar lo siguiente:
+      </span>
+
+      <span class="w-1/2">
+        0/0 + 0/0 es lo mismo que 1 + 1. Y esto, a su vez, seria 1 + 1 = 2.
+      </span>
+
+      <span class="w-1/2">
+        POR LO TANTO, 0/0 + 0/0 es lo mismo que 1 + 1 que es igual a 2, Y ESO, tendría que ser 2 = 0/0, porque inicialmente 0/0 también es (0+0)/0, que a su vez seria 1 = 2.
+      </span>
+
+      <span class="w-1/2">
+        Y eso, es absurdo y no tiene sentido.
+      </span>
+
+
+      <span>Así que algo más allá nos dirá (espero) como demostrarlo mas tangiblemente, pero al menos tenemos una pista.</span>
+    </p>
+  </div>
+</Home>
+
+
+
+<script>
+  
+</script>

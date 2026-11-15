@@ -2,41 +2,55 @@
 // Dark / light theme switch. The knob is the brand's Rob Roy circle; its
 // position and icon come from the `light:` / `dark:` variants, so the visual
 // state needs no JS. Icons: Feather (moon, sun), MIT.
+
 ---
-
-<button
-	type="button"
-	role="switch"
-	aria-checked="false"
-	aria-label="Dark theme"
-	data-theme-toggle
-	class="inline-flex h-8 w-14 shrink-0 cursor-pointer items-center rounded-full border border-foreground-muted p-1 transition-colors duration-300 ease-out-quart hover:border-foreground"
->
-	<span
-		aria-hidden="true"
-		class="flex size-6 items-center justify-center rounded-full bg-accent text-on-accent transition-transform duration-500 ease-out-expo light:translate-x-5.5"
+<div class="flex">
+	<div id="theme-label" class="animate-rise flex gap-x-2 w-34 items-center">
+		<span class="font-bold">Theme:</span>
+		<span id="selected-theme" class="max-w-20"></span>
+	</div>
+	<button
+		type="button"
+		role="switch"
+		aria-checked="false"
+		aria-label="Dark theme"
+		data-theme-toggle
+		class="inline-flex h-8 w-14 shrink-0 cursor-pointer items-center rounded-full border border-foreground-muted p-1 transition-colors duration-300 ease-out-quart hover:border-foreground"
 	>
-		<svg class="size-3.5 light:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-			<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-		</svg>
-		<svg class="size-3.5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-			<circle cx="12" cy="12" r="5"></circle>
-			<path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
-		</svg>
-	</span>
-</button>
-
+		<span
+			aria-hidden="true"
+			class="flex size-6 items-center justify-center rounded-full bg-accent text-on-accent transition-transform duration-500 ease-out-expo light:translate-x-5.5"
+		>
+			<svg class="size-3.5 light:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+			</svg>
+			<svg class="size-3.5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<circle cx="12" cy="12" r="5"></circle>
+				<path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+			</svg>
+		</span>
+	</button>
+</div>
 <script>
 	type Theme = 'dark' | 'light';
-
+	const THEME_COPY = {
+		light: "Latte",
+		dark: "Espresso",
+	}
 	// Resolution order: stored choice (localStorage "theme") → OS setting → light.
 	// The inline script in Layout.astro applies it before first paint.
 	const root = document.documentElement;
 	const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
 	const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
 	const current = (): Theme => (root.dataset.theme === 'dark' ? 'dark' : 'light');
-
+	const setSelectedThemeCopy = () => {
+		const selectedThemeCopyContainer = document.querySelector('#selected-theme')
+		if (selectedThemeCopyContainer) {
+			const selectedThemeCopy = THEME_COPY[current()]
+			selectedThemeCopyContainer.innerHTML = selectedThemeCopy
+		}
+	}
+	setSelectedThemeCopy()
 	function storedTheme(): Theme | null {
 		try {
 			const value = localStorage.getItem('theme');
@@ -54,6 +68,7 @@
 
 	function sync() {
 		const isDark = current() === 'dark';
+		setSelectedThemeCopy()
 		for (const toggle of document.querySelectorAll('[data-theme-toggle]')) {
 			toggle.setAttribute('aria-checked', String(isDark));
 		}

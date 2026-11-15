@@ -1,0 +1,1 @@
+export const pageContainTwUtils = "gap-6 px-6 py-8 sm:px-12 sm:py-12 lg:px-20"

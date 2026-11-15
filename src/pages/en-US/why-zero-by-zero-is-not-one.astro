@@ -1,0 +1,90 @@
+---
+import Home from '../../layouts/Home.astro';
+import cn from 'clsx'
+import { pageContainTwUtils } from '../../ui/spacing'
+
+const TW_UTILS = {
+  paragraph: cn("gap-6 px-6 py-8 sm:px-12 sm:py-12 lg:px-20")
+}
+
+const introParagraphUtils = {
+  container: cn(
+    TW_UTILS.paragraph,
+    "flex flex-col",
+    "text-xl",
+    "max-w-full"
+  )
+}
+---
+
+<Home title="Why 0/0 does not equal 1" author="by Esteban Victorio" role="Tinkerer & Crafter of things">
+  <div class="flex">
+    <p class={introParagraphUtils.container}>
+      <span class="w-1/2">
+        Most likely, for some time now, Platzi will be the reference for the lessons learned while going through... well, Platzi.
+      </span>
+
+      <span class="w-1/2">
+        And, honestly, this happens to be only because I don't really know where to start, haha.
+        Platzi has worked for me in the past when going to the basics in tech, so, let's try something leaned more towards science itself.
+      </span>
+  
+      <span class="w-1/2">
+        Bluntly, I cannot say if this was due to me avoiding learning math until I felt... not necessarily ready for math, but rather in a mental state where I could just say: "well, I think I now have the right mindset to tackle what's hard about math."
+      </span>
+
+      <span class="w-1/2">
+        But you didn't bother to pay a visit over here just to read the reasons as to why I avoided math, did you?
+      </span>
+
+      <span class="w-1/2">
+        A random November day in 2026 (close to when I started writing this) I began taking the Math for Programming route in Platzi, which opens with the "Why 0/0 does not equal to 1".
+      </span>
+
+      <span class="w-1/2">
+        Class is about 1 min and a few seconds long. And I said to myself: I don't think I'll be able to learn such an enigmatic puzzle in a very short time.
+      </span>
+
+      <span class="w-1/2">
+        And I was right. BUT, that's not to say you are left with the clueless mind of your own to keep wondering and grounds you to a suspicion
+        as to why you can doubt why it should not be equal to 1.
+      </span>
+
+
+      <span class="w-1/2">
+        The issue goes like this: If 0/0 was equal to 1, then, we'd have to trust blindly the following as true as well:
+      </span>
+
+      <span class="w-1/2">
+        If 0/0 is equal to 1, then we also know that 0/0 can be expressed as (0+0)/0.
+      </span>
+
+      <span class="w-1/2">
+        Which, in turn, can also be expressed as 0/0 + 0/0, right? AND THEN, we'd have to also accept this:
+      </span>
+
+      <span class="w-1/2">
+        0/0 + 0/0 is the same 1 + 1 by the prior statement. Which would ALSO be 1 + 1 = 2.
+      </span>
+
+      <span class="w-1/2">
+        THEREFORE, 0/0 + 0/0 is the same 1 + 1 which is 2, AND THAT would be 2 = 0/0, since 0/0 was also (0+0)/0, which in turn would be 1 = 2.
+      </span>
+
+      <span class="w-1/2">
+        And that's bullocks. It doesn't make sense.
+      </span>
+
+
+      <span>
+        So, hopefully, something in the horizon can help us explain or demonstrate such thing, but now we have a clue.
+      </span>
+    </p>
+  </div>
+</Home>
+
+
+
+<script>
+  
+</script>
